@@ -1,0 +1,23 @@
+{
+    "name": "hyva-themes/magento2-cms-wysiwyg",
+    "description": "Allow SVGs and all tailwind classes in CMS block and page content.",
+    "require": {
+        "php": "^7.4.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [{
+        "name": "Hyvä Themes B.V.",
+        "email": "info@hyva.io"
+    }],
+    "autoload": {
+        "files": [
+            "src/registration.php"
+        ],
+        "psr-4": {
+            "Hyva\\CmsWysiwyg\\": "src/"
+        }
+    }
+}
