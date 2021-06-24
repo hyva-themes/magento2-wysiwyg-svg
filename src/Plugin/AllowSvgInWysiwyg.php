@@ -4,6 +4,7 @@ namespace Hyva\CmsWysiwyg\Plugin;
 
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Framework\DataObject;
+use function array_keys as keys;
 use function array_map as map;
 use function array_merge as merge;
 use function array_unique as unique;
@@ -267,7 +268,15 @@ class AllowSvgInWysiwyg
             ? $settings['extended_valid_elements'] . ','
             : '';
 
+        // documented setting, but doesn't work on it's own - svg's are still removed
         $settings['extended_valid_elements'] = $extendedSettings . implode(',', $this->buildExtendedValidElements());
+
+        // non documented setting, see https://stackoverflow.com/a/48884025 - but it works with tinymce4 and tinymce5
+        $settings['non_empty_elements'] =
+            'td,th,iframe,video,audio,object,script,i,em,span,area,base,basefont,br,' . // default list
+            'col,embed,frame,hr,img,input,isindex,link,meta,param,,source,wbr,track,' . // also default list
+            implode(',', $this->buildNonEmptyElementsExtension()); // add svg related tags to list
+
         $result->setData('settings', $settings);
 
         return $result;
@@ -361,22 +370,16 @@ class AllowSvgInWysiwyg
 
     private function buildExtendedValidElements(): array
     {
-        $extend[] = 'svg[' . $this->attributes(
-                ['xmlns', 'height', 'preserveAspectRatio', 'viewBox', 'width', 'x', 'y'],
-                self::CORE,
-                self::STYLE,
-                self::GLOBAL_EVENT,
-                self::GRAPHICAL_EVENT,
-                self::DOCUMENT_EVENT,
-                self::DOCUMENT_ELEMENT_EVENT,
-                self::PRESENTATION,
-                self::ARIA
-            ) . ']';
-
+        $extend[] = 'svg[*]';
         foreach ($this->svgChildElements() as $element => $validAttributes) {
             $extend[] = $element . ($validAttributes === [] ? '[*]' : $this->implode($validAttributes));
         }
         return $extend;
+    }
+
+    private function buildNonEmptyElementsExtension(): array
+    {
+        return merge(['svg'], keys($this->svgChildElements()));
     }
 
     private function attributes(array $specific, string ...$attrGroups): string
