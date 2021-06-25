@@ -39,6 +39,6 @@ Hyvä Themes - https://hyva.io
 
 Copyright © Hyvä Themes B.V 2020-present. All rights reserved.
 
-This product is licensed per Magento install. Please see [License File](LICENSE.md) for more information.
+The BSD-3-Clause License. Please see [License File](LICENSE.txt) for more information.
 
 [ico-compatibility]: https://img.shields.io/badge/magento-%202.4-brightgreen.svg?logo=magento&longCache=true&style=flat-square
