@@ -414,7 +414,18 @@ class SvgElements
                 self::STYLE
             ),
             'feConvolveMatrix'    => $attributeGroups(
-                ['in', 'order', 'kernelMatrix', 'divisor', 'bias', 'targetX', 'targetY', 'edgeMode', 'kernelUnitLength', 'preserveAlpha'],
+                [
+                    'in',
+                    'order',
+                    'kernelMatrix',
+                    'divisor',
+                    'bias',
+                    'targetX',
+                    'targetY',
+                    'edgeMode',
+                    'kernelUnitLength',
+                    'preserveAlpha',
+                ],
                 self::CORE,
                 self::PRESENTATION,
                 self::FILTER_PRIMITIVE,
@@ -511,7 +522,7 @@ class SvgElements
                 self::STYLE
             ),
             'feSpotLight'         => $attributeGroups(
-                ['x','y','z','pointsAtX','pointsAtY','pointsAtZ','specularExponent','limitingConeAngle'],
+                ['x', 'y', 'z', 'pointsAtX', 'pointsAtY', 'pointsAtZ', 'specularExponent', 'limitingConeAngle'],
                 self::CORE
             ),
             'feTile'              => $attributeGroups(
@@ -573,33 +584,225 @@ class SvgElements
                 self::STYLE
             ),
             'line'                => $attributeGroups(
-                
+                ['x1', 'x2', 'y1', 'y2', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
             ),
-            'linearGradient'      => $attributeGroups(),
-            'marker'              => $attributeGroups(),
-            'mask'                => $attributeGroups(),
-            'metadata'            => $attributeGroups(),
+            'linearGradient'      => $attributeGroups(
+                ['gradientUnits', 'gradientTransform', 'href', 'spreadMethod', 'x1', 'x2', 'y1', 'y2'],
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT,
+                self::PRESENTATION
+            ),
+            'marker'              => $attributeGroups(
+                [
+                    'markerHeight',
+                    'markerUnits',
+                    'markerWidth',
+                    'orient',
+                    'preserveAspectRatio',
+                    'refX',
+                    'refY',
+                    'viewBox',
+                ],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'mask'                => $attributeGroups(
+                ['heigth', 'maskContentUnits', 'maskUnits', 'x', 'y', 'width'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::PRESENTATION
+            ),
+            'metadata'            => $attributeGroups(
+                self::CORE,
+                self::GLOBAL_EVENT
+            ),
             //'missing-glyph', // deprecated
-            'mpath'               => $attributeGroups(),
-            'path'                => $attributeGroups(),
-            'pattern'             => $attributeGroups(),
-            'polygon'             => $attributeGroups(),
-            'polyline'            => $attributeGroups(),
-            'radialGradient'      => $attributeGroups(),
-            'rect'                => $attributeGroups(),
-            //'script', // disabled because, easy to hide bad stuff here
-            'set'                 => $attributeGroups(),
-            'stop'                => $attributeGroups(),
-            'style'               => $attributeGroups(),
-            'switch'              => $attributeGroups(),
-            'symbol'              => $attributeGroups(),
-            'text'                => $attributeGroups(),
-            'textPath'            => $attributeGroups(),
-            'title'               => $attributeGroups(),
+            'mpath'               => $attributeGroups(
+                self::CORE
+            ),
+            'path'                => $attributeGroups(
+                ['d', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'pattern'             => $attributeGroups(
+                [
+                    'height',
+                    'href',
+                    'patternContentUnits',
+                    'patternTransform',
+                    'patternUnits',
+                    'preserveAspectRatio',
+                    'viewBox',
+                    'width',
+                    'x',
+                    'y',
+                ],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::PRESENTATION
+            ),
+            'polygon'             => $attributeGroups(
+                ['points', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'polyline'            => $attributeGroups(
+                ['points', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'radialGradient'      => $attributeGroups(
+                ['cx', 'cy', 'fr', 'fx', 'fy', 'gradientUnits', 'gradientTransform', 'href', 'r', 'spreadMethod'],
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT,
+                self::PRESENTATION
+            ),
+            'rect'                => $attributeGroups(
+                ['x', 'y', 'width', 'height', 'rx', 'ry', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            // disabled because, easy to hide bad stuff here
+            //'script'              => $attributeGroups(
+            //    ['crossorigin', 'href', 'type'],
+            //    self::CORE,
+            //    self::STYLE,
+            //    self::GLOBAL_EVENT,
+            //    self::DOCUMENT_ELEMENT_EVENT
+            //),
+            'set'                 => $attributeGroups(
+                ['to'],
+                self::ANIMATION_TIMING,
+                self::ANIMATION_ATTRIBUTE_TARGET,
+                self::ANIMATION_EVENT,
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT
+            ),
+            'stop'                => $attributeGroups(
+                ['offset', 'stop-color', 'stop-opacity'],
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT,
+                self::PRESENTATION
+            ),
+            'style'               => $attributeGroups(
+                ['type', 'media', 'title'],
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT
+            ),
+            'switch'              => $attributeGroups(
+                self::CORE,
+                self::CONDITIONAL_PROCESSING,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::STYLE
+            ),
+            'symbol'              => $attributeGroups(
+                ['height', 'preserveAspectRatio', 'refX', 'refY', 'viewBox', 'width', 'x', 'y'],
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'text'                => $attributeGroups(
+                ['x', 'y', 'dx', 'dy', 'rotate', 'lengthAdjust', 'textLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'textPath'            => $attributeGroups(
+                ['href', 'lengthAdjust', 'method', 'path', 'side', 'spacing', 'startOffset', 'textLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+
+            ),
+            'title'               => $attributeGroups(
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT
+            ),
             //'tref', // deprecated
-            'tspan'               => $attributeGroups(),
-            'use'                 => $attributeGroups(),
-            'view'                => $attributeGroups(),
+            'tspan'               => $attributeGroups(
+                ['x', 'y', 'dx', 'dy', 'rotate', 'lengthAdjust', 'textLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'use'                 => $attributeGroups(
+                ['x', 'y', 'width', 'height'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'view'                => $attributeGroups(
+                ['viewBox', 'preserveAspectRatio', 'zoomAndPan', 'viewTarget'],
+                self::CORE,
+                self::GLOBAL_EVENT,
+                self::ARIA
+            ),
             //'vkern', // deprecated
         ];
     }
