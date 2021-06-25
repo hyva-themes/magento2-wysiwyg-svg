@@ -320,17 +320,81 @@ class SvgElements
                 self::GLOBAL_EVENT,
                 self::DOCUMENT_ELEMENT_EVENT
             ),
-            'animateMotion'       => $attributeGroups(),
-            'animateTransform'    => $attributeGroups(),
-            'circle'              => $attributeGroups(),
-            'clipPath'            => $attributeGroups(),
+            'animateMotion'       => $attributeGroups(
+                ['keyPoints', 'path', 'rotate'],
+                self::ANIMATION_TIMING,
+                self::ANIMATION_VALUE,
+                self::ANIMATION_ADDITION,
+                self::ANIMATION_ATTRIBUTE_TARGET,
+                self::ANIMATION_EVENT,
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT
+            ),
+            'animateTransform'    => $attributeGroups(
+                ['by', 'from', 'to', 'type'],
+                self::CONDITIONAL_PROCESSING,
+                self::CORE,
+                self::ANIMATION_EVENT,
+                self::ANIMATION_ATTRIBUTE_TARGET,
+                self::ANIMATION_TIMING,
+                self::ANIMATION_VALUE,
+                self::ANIMATION_ADDITION
+            ),
+            'circle'              => $attributeGroups(
+                ['cx', 'cy', 'r', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'clipPath'            => $attributeGroups(
+                ['clipPathUnits'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::PRESENTATION
+            ),
             //'color-profile', // deprecated
             //'cursor', // deprecated
-            'defs'                => $attributeGroups(),
-            'desc'                => $attributeGroups(),
-            'ellipse'             => $attributeGroups(),
-            'feBlend'             => $attributeGroups(),
-            'feColorMatrix'       => $attributeGroups(),
+            'defs'                => $attributeGroups(
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION
+            ),
+            'desc'                => $attributeGroups(
+                self::CORE,
+                self::STYLE,
+                self::GLOBAL_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT
+            ),
+            'ellipse'             => $attributeGroups(
+                ['cx', 'cy', 'rx', 'ry', 'pathLength'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'feBlend'             => $attributeGroups(
+                ['in', 'in2', 'mode'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feColorMatrix'       => $attributeGroups(
+                
+            ),
             'feComponentTransfer' => $attributeGroups(),
             'feComposite'         => $attributeGroups(),
             'feConvolveMatrix'    => $attributeGroups(),
