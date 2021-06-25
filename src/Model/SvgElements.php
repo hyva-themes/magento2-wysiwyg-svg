@@ -393,44 +393,188 @@ class SvgElements
                 self::STYLE
             ),
             'feColorMatrix'       => $attributeGroups(
-                
+                ['in', 'type', 'values'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
             ),
-            'feComponentTransfer' => $attributeGroups(),
-            'feComposite'         => $attributeGroups(),
-            'feConvolveMatrix'    => $attributeGroups(),
-            'feDiffuseLighting'   => $attributeGroups(),
-            'feDisplacementMap'   => $attributeGroups(),
-            'feDistantLight'      => $attributeGroups(),
-            'feFlood'             => $attributeGroups(),
-            'feFuncA'             => $attributeGroups(),
-            'feFuncB'             => $attributeGroups(),
-            'feFuncG'             => $attributeGroups(),
-            'feFuncR'             => $attributeGroups(),
-            'feGaussianBlur'      => $attributeGroups(),
-            'feImage'             => $attributeGroups(),
-            'feMerge'             => $attributeGroups(),
-            'feMergeNode'         => $attributeGroups(),
-            'feMorphology'        => $attributeGroups(),
-            'feOffset'            => $attributeGroups(),
-            'fePointLight'        => $attributeGroups(),
-            'feSpecularLighting'  => $attributeGroups(),
-            'feSpotLight'         => $attributeGroups(),
-            'feTile'              => $attributeGroups(),
-            'feTurbulence'        => $attributeGroups(),
-            'filter'              => $attributeGroups(),
+            'feComponentTransfer' => $attributeGroups(
+                ['in'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feComposite'         => $attributeGroups(
+                ['in', 'in2', 'operator', 'k1', 'k2', 'k3', 'k4'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feConvolveMatrix'    => $attributeGroups(
+                ['in', 'order', 'kernelMatrix', 'divisor', 'bias', 'targetX', 'targetY', 'edgeMode', 'kernelUnitLength', 'preserveAlpha'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feDiffuseLighting'   => $attributeGroups(
+                ['in', 'surfaceScale', 'diffuseConstant', 'kernelUnitLength'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feDisplacementMap'   => $attributeGroups(
+                ['in', 'in2', 'scale', 'xChannelSelector', 'yChannelSelector'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feDistantLight'      => $attributeGroups(
+                ['azimuth', 'elevation'],
+                self::CORE
+            ),
+            'feFlood'             => $attributeGroups(
+                ['flood-color', 'flood-opacity'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feFuncA'             => $attributeGroups(
+                self::CORE,
+                self::TRANSFER_FUNCTION
+            ),
+            'feFuncB'             => $attributeGroups(
+                self::CORE,
+                self::TRANSFER_FUNCTION
+            ),
+            'feFuncG'             => $attributeGroups(
+                self::CORE,
+                self::TRANSFER_FUNCTION
+            ),
+            'feFuncR'             => $attributeGroups(
+                self::CORE,
+                self::TRANSFER_FUNCTION
+            ),
+            'feGaussianBlur'      => $attributeGroups(
+                ['in', 'stdDeviation', 'edgeMode'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feImage'             => $attributeGroups(
+                ['preserveAspectRatio'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feMerge'             => $attributeGroups(
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feMergeNode'         => $attributeGroups(
+                ['in'],
+                self::CORE
+            ),
+            'feMorphology'        => $attributeGroups(
+                ['in', 'operator', 'radius'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feOffset'            => $attributeGroups(
+                ['in', 'dx', 'dy'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'fePointLight'        => $attributeGroups(
+                ['x', 'y', 'z'],
+                self::CORE
+            ),
+            'feSpecularLighting'  => $attributeGroups(
+                ['in', 'surfaceScale', 'specularConstant', 'specularExponent', 'kernelUnitLength'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feSpotLight'         => $attributeGroups(
+                ['x','y','z','pointsAtX','pointsAtY','pointsAtZ','specularExponent','limitingConeAngle'],
+                self::CORE
+            ),
+            'feTile'              => $attributeGroups(
+                ['in'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'feTurbulence'        => $attributeGroups(
+                ['baseFrequency', 'numOctaves', 'seed', 'stitchTiles', 'type'],
+                self::CORE,
+                self::PRESENTATION,
+                self::FILTER_PRIMITIVE,
+                self::STYLE
+            ),
+            'filter'              => $attributeGroups(
+                ['x', 'y', 'width', 'height', 'filterRes', 'filterUnits', 'primitiveUnits'],
+                self::CORE,
+                self::PRESENTATION,
+                self::STYLE
+            ),
             //'font', // deprecated
             //'font-face', // deprecated
             //'font-face-format', // deprecated
             //'font-face-name', // deprecated
             //'font-face-src', // deprecated
             //'font-face-uri', // deprecated
-            'foreignObject'       => $attributeGroups(),
-            'g'                   => $attributeGroups(),
+            'foreignObject'       => $attributeGroups(
+                ['height', 'width', 'x', 'y'],
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::DOCUMENT_EVENT,
+                self::DOCUMENT_ELEMENT_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
+            'g'                   => $attributeGroups(
+                self::CORE,
+                self::STYLE,
+                self::CONDITIONAL_PROCESSING,
+                self::GLOBAL_EVENT,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::ARIA
+            ),
             //'glyph', // deprecated
             //'glyphRef', // deprecated
             //'hkern', // deprecated
-            'image'               => $attributeGroups(),
-            'line'                => $attributeGroups(),
+            'image'               => $attributeGroups(
+                ['x', 'y', 'width', 'height', 'href', 'preserveAspectRatio', 'crossorigin'],
+                self::CORE,
+                self::CONDITIONAL_PROCESSING,
+                self::GRAPHICAL_EVENT,
+                self::PRESENTATION,
+                self::STYLE
+            ),
+            'line'                => $attributeGroups(
+                
+            ),
             'linearGradient'      => $attributeGroups(),
             'marker'              => $attributeGroups(),
             'mask'                => $attributeGroups(),
