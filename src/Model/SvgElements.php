@@ -271,7 +271,7 @@ class SvgElements
     /**
      * Return map of SVG elements to array of attributes.
      *
-     * @return array[][]
+     * @return string[][]
      */
     public function getSvgElements(): array
     {
@@ -285,7 +285,7 @@ class SvgElements
 
         return [
             'svg'                 => $attributeGroups(
-                ['height', 'preserveAspectRatio', 'viewBox', 'width', 'x', 'y'],
+                ['xmlns', 'height', 'preserveAspectRatio', 'viewBox', 'width', 'x', 'y'],
                 self::CONDITIONAL_PROCESSING,
                 self::STYLE,
                 self::CONDITIONAL_PROCESSING,
@@ -805,5 +805,47 @@ class SvgElements
             ),
             //'vkern', // deprecated
         ];
+    }
+
+    /**
+     * Return di.xml allowedTags configuration for DefaultWYSIWYGValidator
+     *
+     * This method is intended to be used during development to generate the XML and copy & paste it into di.xml.
+     */
+    public static function getDiConfigAllowedTags(): string
+    {
+        $xml = '';
+        foreach ((new self)->getSvgElements() as $element => $attributes) {
+            $xml .= '                ' . self::formatItem($element) . "\n";
+        }
+        return $xml;
+    }
+
+    /**
+     * Return di.xml allowedAttributesByTag configuration for DefaultWYSIWYGValidator
+     *
+     * This method is intended to be used during development to generate the XML and copy & paste it into di.xml.
+     */
+    public static function getDiConfigAllowedAttributesByTag(): string
+    {
+        $xml = '';
+        foreach ((new self)->getSvgElements() as $element => $attributes) {
+            $xml .= '                ' . self::formatArrayItem($element) . "\n";
+            foreach ($attributes as $attribute) {
+                $xml .= '                    ' . self::formatItem($attribute) . "\n";
+            }
+            $xml .= '                </item>' . "\n";
+        }
+        return $xml;
+    }
+
+    private static function formatArrayItem(string $item): string
+    {
+        return sprintf('<item name="%s" xsi:type="array">', $item);
+    }
+
+    private static function formatItem(string $item): string
+    {
+        return sprintf('<item name="%s" xsi:type="string">%s</item>', $item, strtolower($item));
     }
 }
