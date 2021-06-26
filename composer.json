@@ -1,5 +1,5 @@
 {
-    "name": "hyva-themes/magento2-cms-wysiwyg",
+    "name": "hyva-themes/magento2-wysiwyg-svg",
     "description": "Allow SVGs and all tailwind classes in CMS block and page content.",
     "require": {
         "php": "^7.4.0"
@@ -17,7 +17,7 @@
             "src/registration.php"
         ],
         "psr-4": {
-            "Hyva\\CmsWysiwyg\\": "src/"
+            "Hyva\\WysiwygSvg\\": "src/"
         }
     }
 }

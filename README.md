@@ -1,10 +1,10 @@
-# Hyvä Themes - CMS Wysiwyg fixes
+# Hyvä Themes - SVG support for the Magento CMS Wysiwyg Editor
 
 [![Hyvä Themes](https://hyva.io/media/wysiwyg/logo-compact.png)](https://hyva.io/)
 
 Allow SVG images to be used in CMS blocks and pages via the TinyMCE Wysiwyg Editor.
 
-## hyva-themes/magento2-cms-wysiwyg
+## hyva-themes/magento2-wysiwyg-svg
 
 ![Supported Magento Versions][ico-compatibility]
 
@@ -14,8 +14,8 @@ Compatible with Magento 2.4.0 and higher.
 
 1. Install via composer
     ```
-    composer config repositories.hyva-themes/magento2-cms-wysiwyg git git@gitlab.hyva.io:hyva-themes/magento2-cms-wysiwyg.git
-    composer require hyva-themes/magento2-cms-wysiwyg
+    composer config repositories.hyva-themes/magento2-wysiwyg-svg git git@gitlab.hyva.io:hyva-themes/magento2-wysiwyg-svg.git
+    composer require hyva-themes/magento2-wysiwyg-svg
     ```
 2. Enable module
     ```

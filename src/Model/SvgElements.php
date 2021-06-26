@@ -5,7 +5,7 @@
  * See LICENSE.md for license details
  */
 
-namespace Hyva\CmsWysiwyg\Model;
+namespace Hyva\WysiwygSvg\Model;
 
 use function array_map as map;
 use function array_merge as merge;

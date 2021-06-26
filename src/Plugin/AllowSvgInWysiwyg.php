@@ -5,9 +5,9 @@
  * See LICENSE.md for license details
  */
 
-namespace Hyva\CmsWysiwyg\Plugin;
+namespace Hyva\WysiwygSvg\Plugin;
 
-use Hyva\CmsWysiwyg\Model\SvgElements;
+use Hyva\WysiwygSvg\Model\SvgElements;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Framework\DataObject;
 use function array_keys as keys;
