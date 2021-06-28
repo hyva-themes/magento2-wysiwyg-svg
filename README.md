@@ -29,6 +29,8 @@ No configuration is required or available.
 To use, switch a CMS Wysiwyg Editor to the HTML view and past the SVG where you want it.
 Then switch back to the regular view and save the CMS block or page.
 
+Note: this module can be used with any Magento theme - there is no hard requirement to use a Hyvä frontend theme.
+
 ## Credits
 
 Thanks to Pekka M. for the help figuring out how to customize the editor.
