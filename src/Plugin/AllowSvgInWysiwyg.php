@@ -1,9 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Hyvä Themes - https://hyva.io
- * Copyright © Hyvä Themes 2020-present. All rights reserved.
- * See LICENSE.md for license details
+ * Copyright © Hyvä Themes. All rights reserved.
+ * See COPYING.txt for license details.
  */
+
+declare(strict_types=1);
 
 namespace Hyva\WysiwygSvg\Plugin;
 

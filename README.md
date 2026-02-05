@@ -34,12 +34,11 @@ Note: this module can be used with any Magento theme - there is no hard requirem
 
 Thanks to Pekka M. for the help figuring out how to customize the editor.
 
-## License
+### License
 
-Hyvä Themes - https://hyva.io
+This package is licensed under the **Open Software License (OSL 3.0)**.
 
-Copyright © Hyvä Themes B.V 2020-present. All rights reserved.
-
-The BSD-3-Clause License. Please see [License File](LICENSE.txt) for more information.
+* **Copyright:** Copyright © 2020-present Hyvä Themes. All rights reserved.
+* **License Text (OSL 3.0):** The full text of the OSL 3.0 license can be found in the `LICENSE.txt` file within this package, and is also available online at [http://opensource.org/licenses/osl-3.0.php](http://opensource.org/licenses/osl-3.0.php).
 
 [ico-compatibility]: https://img.shields.io/badge/magento-%202.4-brightgreen.svg?logo=magento&longCache=true&style=flat-square
